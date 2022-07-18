@@ -19,7 +19,7 @@ XORG_MACROS_VERSION(1.8)
 XORG_DEFAULT_OPTIONS
 XORG_CHECK_MALLOC_ZERO
 
-# Obtain compiler/linker options for depedencies
+# Obtain compiler/linker options for dependencies
 PKG_CHECK_MODULES(XXF86VM, xproto [x11 >= 1.6] xextproto xext [xf86vidmodeproto >= 2.2.99.1])
 
 AC_CONFIG_FILES([Makefile
