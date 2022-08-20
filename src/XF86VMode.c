@@ -267,7 +267,7 @@ XF86VidModeGetModeLine(Display* dpy, int screen, int* dotclock,
     }
 
     if (modeline->privsize > 0) {
-	if (modeline->privsize < (INT_MAX / sizeof(INT32)))
+	if ((unsigned) modeline->privsize < (INT_MAX / sizeof(INT32)))
 	    modeline->private = Xcalloc(modeline->privsize, sizeof(INT32));
 	else
 	    modeline->private = NULL;
