@@ -418,14 +418,8 @@ XF86VidModeGetAllModeLines(Display* dpy, int screen, int* modecount,
  * GetReq replacement for use with VidMode protocols earlier than 2.0
  */
 #define GetOldReq(name, oldname, req) \
-        WORD64ALIGN\
-	if ((dpy->bufptr + SIZEOF(x##oldname##Req)) > dpy->bufmax)\
-		_XFlush(dpy);\
-	req = (x##oldname##Req *)(dpy->last_req = dpy->bufptr);\
-	req->reqType = X_##name;\
-	req->length = (SIZEOF(x##oldname##Req))>>2;\
-	dpy->bufptr += SIZEOF(x##oldname##Req);\
-	dpy->request++
+	req = (x##oldname##Req *) \
+	    _XGetRequest(dpy, X_##name, SIZEOF(x##oldname##Req))
 
 Bool
 XF86VidModeAddModeLine(Display *dpy, int screen,
