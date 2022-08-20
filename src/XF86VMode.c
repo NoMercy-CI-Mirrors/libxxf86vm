@@ -433,8 +433,6 @@ XF86VidModeAddModeLine(Display *dpy, int screen,
 		       XF86VidModeModeInfo* aftermodeline)
 {
     XExtDisplayInfo *info = find_display (dpy);
-    xXF86VidModeAddModeLineReq *req;
-    xXF86OldVidModeAddModeLineReq *oldreq;
     int majorVersion, minorVersion;
 
     XF86VidModeCheckExtension (dpy, info, False);
@@ -442,6 +440,8 @@ XF86VidModeAddModeLine(Display *dpy, int screen,
 
     LockDisplay(dpy);
     if (_X_UNLIKELY(majorVersion < 2)) {
+	xXF86OldVidModeAddModeLineReq *oldreq;
+
 	GetOldReq(XF86VidModeAddModeLine, XF86OldVidModeAddModeLine, oldreq);
 	oldreq->reqType = info->codes->major_opcode;
 	oldreq->xf86vidmodeReqType = X_XF86VidModeAddModeLine;
@@ -486,6 +486,8 @@ XF86VidModeAddModeLine(Display *dpy, int screen,
 	       newmodeline->privsize * sizeof(INT32));
 	}
     } else {
+	xXF86VidModeAddModeLineReq *req;
+
 	GetReq(XF86VidModeAddModeLine, req);
 	req->reqType = info->codes->major_opcode;
 	req->xf86vidmodeReqType = X_XF86VidModeAddModeLine;
@@ -543,8 +545,6 @@ XF86VidModeDeleteModeLine(Display *dpy, int screen,
 			  XF86VidModeModeInfo* modeline)
 {
     XExtDisplayInfo *info = find_display (dpy);
-    xXF86VidModeDeleteModeLineReq *req;
-    xXF86OldVidModeDeleteModeLineReq *oldreq;
     int majorVersion, minorVersion;
 
     XF86VidModeCheckExtension (dpy, info, 0);
@@ -552,6 +552,8 @@ XF86VidModeDeleteModeLine(Display *dpy, int screen,
 
     LockDisplay(dpy);
     if (_X_UNLIKELY(majorVersion < 2)) {
+	xXF86OldVidModeDeleteModeLineReq *oldreq;
+
 	GetOldReq(XF86VidModeDeleteModeLine, XF86OldVidModeDeleteModeLine, oldreq);
 	oldreq->reqType = info->codes->major_opcode;
 	oldreq->xf86vidmodeReqType = X_XF86VidModeDeleteModeLine;
@@ -573,6 +575,8 @@ XF86VidModeDeleteModeLine(Display *dpy, int screen,
 	       modeline->privsize * sizeof(INT32));
 	}
     } else {
+	xXF86VidModeDeleteModeLineReq *req;
+
 	GetReq(XF86VidModeDeleteModeLine, req);
 	req->reqType = info->codes->major_opcode;
 	req->xf86vidmodeReqType = X_XF86VidModeDeleteModeLine;
@@ -604,8 +608,6 @@ Bool
 XF86VidModeModModeLine(Display *dpy, int screen, XF86VidModeModeLine* modeline)
 {
     XExtDisplayInfo *info = find_display (dpy);
-    xXF86VidModeModModeLineReq *req;
-    xXF86OldVidModeModModeLineReq *oldreq;
     int majorVersion, minorVersion;
 
     XF86VidModeCheckExtension (dpy, info, 0);
@@ -613,6 +615,8 @@ XF86VidModeModModeLine(Display *dpy, int screen, XF86VidModeModeLine* modeline)
 
     LockDisplay(dpy);
     if (_X_UNLIKELY(majorVersion < 2)) {
+	xXF86OldVidModeModModeLineReq *oldreq;
+
 	GetOldReq(XF86VidModeModModeLine, XF86OldVidModeModModeLine, oldreq);
 	oldreq->reqType = info->codes->major_opcode;
 	oldreq->xf86vidmodeReqType = X_XF86VidModeModModeLine;
@@ -633,6 +637,8 @@ XF86VidModeModModeLine(Display *dpy, int screen, XF86VidModeModeLine* modeline)
 	       modeline->privsize * sizeof(INT32));
 	}
     } else {
+	xXF86VidModeModModeLineReq *req;
+
 	GetReq(XF86VidModeModModeLine, req);
 	req->reqType = info->codes->major_opcode;
 	req->xf86vidmodeReqType = X_XF86VidModeModModeLine;
@@ -664,8 +670,6 @@ XF86VidModeValidateModeLine(Display *dpy, int screen,
 			    XF86VidModeModeInfo* modeline)
 {
     XExtDisplayInfo *info = find_display (dpy);
-    xXF86VidModeValidateModeLineReq *req;
-    xXF86OldVidModeValidateModeLineReq *oldreq;
     xXF86VidModeValidateModeLineReply rep;
     int majorVersion, minorVersion;
 
@@ -675,6 +679,8 @@ XF86VidModeValidateModeLine(Display *dpy, int screen,
     LockDisplay(dpy);
 
     if (_X_UNLIKELY(majorVersion < 2)) {
+	xXF86OldVidModeValidateModeLineReq *oldreq;
+
 	GetOldReq(XF86VidModeValidateModeLine, XF86OldVidModeValidateModeLine, oldreq);
 	oldreq->reqType = info->codes->major_opcode;
 	oldreq->xf86vidmodeReqType = X_XF86VidModeValidateModeLine;
@@ -696,6 +702,8 @@ XF86VidModeValidateModeLine(Display *dpy, int screen,
 	       modeline->privsize * sizeof(INT32));
 	}
     } else {
+	xXF86VidModeValidateModeLineReq *req;
+
 	GetReq(XF86VidModeValidateModeLine, req);
 	req->reqType = info->codes->major_opcode;
 	req->xf86vidmodeReqType = X_XF86VidModeValidateModeLine;
