@@ -17,7 +17,7 @@
 .if t .ft R
 .RE
 ..
-.TH XF86VIDMODE __libmansuffix__ __vendorversion__
+.TH XF86VIDMODE __libmansuffix__ 2013-07-05 __vendorversion__
 .SH NAME
 XF86VidModeQueryExtension, XF86VidModeQueryVersion,
 XF86VidModeSetClientVersion, XF86VidModeGetModeLine,
@@ -32,87 +32,86 @@ XF86VidModeGetPermissions \- Extension library for the XFree86-VidMode X
 extension
 .SH SYNOPSIS
 .nf
-
 \&#include <X11/extensions/xf86vmode.h>
-
+.sp
 Bool XF86VidModeQueryExtension(
     Display *\fIdisplay\fP\^,
     int *\fIevent_base_return\fP\^,
     int *\fIerror_base_return\fP\^);
-
+.sp
 Bool XF86VidModeQueryVersion(
     Display *\fIdisplay\fP\^,
     int *\fImajor_version_return\fP\^,
     int *\fIminor_version_return\fP\^);
-
+.sp
 Bool XF86VidModeSetClientVersion(
     Display *\fIdisplay\fP\^);
-
+.sp
 Bool XF86VidModeGetModeLine(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     int *\fIdotclock_return\fP\^,
     XF86VidModeModeLine *\fImodeline\fP\^);
-
+.sp
 Bool XF86VidModeGetAllModeLines(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     int *\fImodecount_return\fP\^,
     XF86VidModeModeInfo ***\fImodesinfo\fP\^);
-
+.sp
 Bool XF86VidModeAddModeLine(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     XF86VidModeModeInfo *\fImodeline\fP\,
     XF86VidModeModeInfo *\fIaftermode\fP\^);
-
+.sp
 Bool XF86VidModeDeleteModeLine(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     XF86VidModeModeInfo *\fImodeline\fP\^);
-
+.sp
 Bool XF86VidModeModModeLine(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     XF86VidModeModeLine *\fImodeline\fP\^);
-
+.sp
 Status XF86VidModeValidateModeLine(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     XF86VidModeModeLine *\fImodeline\fP\^);
-
+.sp
 Bool XF86VidModeSwitchMode(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     int \fIzoom\fP\^);
-
+.sp
 Bool XF86VidModeSwitchToMode(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     XF86VidModeModeInfo *\fImodeline\fP\^);
-
+.sp
 Bool XF86VidModeLockModeSwitch(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     int \fIlock\fP\^);
-
+.sp
 Bool XF86VidModeGetMonitor(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     XF86VidModeMonitor *\fImonitor\fP\^);
-
+.sp
 Bool XF86VidModeGetViewPort(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     int *\fIx_return\fP\^,
     int *\fIy_return\fP\^);
-
+.sp
 Bool XF86VidModeSetViewPort(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     int \fIx\fP\^,
     int \fIy\fP\^);
-
+.sp
 XF86VidModeGetDotClocks(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
@@ -120,17 +119,17 @@ XF86VidModeGetDotClocks(
     int *\fInumber of clocks return\fP\^,
     int *\fImax dot clock return\fP\^,
     int **\fIclocks return\fP\^);
-
+.sp
 XF86VidModeGetGamma(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     XF86VidModeGamma *\fIGamma\fP\^);
-
+.sp
 XF86VidModeSetGamma(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
     XF86VidModeGamma *\fIGamma\fP\^);
-
+.sp
 XF86VidModeGetGammaRamp(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
@@ -138,7 +137,7 @@ XF86VidModeGetGammaRamp(
     unsigned short *\fIred array\fP\^,
     unsigned short *\fIgreen array\fP\^,
     unsigned short *\fIblue array\fP\^);
-
+.sp
 XF86VidModeSetGammaRamp(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
@@ -146,7 +145,7 @@ XF86VidModeSetGammaRamp(
     unsigned short *\fIred array\fP\^,
     unsigned short *\fIgreen array\fP\^,
     unsigned short *\fIblue array\fP\^);
-
+.sp
 XF86VidModeGetGammaRampSize(
     Display *\fIdisplay\fP\^,
     int \fIscreen\fP\^,
@@ -208,7 +207,7 @@ typedef struct {
     int privsize;                       /\(** Size of private */
     INT32       *private;               /\(** Server privates */
 } XF86VidModeModeLine;
-
+.sp
 typedef struct {
     unsigned int        dotclock;       /\(** Pixel clock */
     unsigned short      hdisplay;       /\(** Number of display pixels horizontally */
@@ -236,12 +235,12 @@ typedef struct {
     unsigned char nvsync;              /\(** Number of vert sync ranges */
     XF86VidModeSyncRange* vsync;       /\(** Vertical sync ranges */
 } XF86VidModeMonitor;
-
+.sp
 typedef struct {
     float       hi;     /\(** Top of range */
     float       lo;     /\(** Bottom of range */
 } XF86VidModeSyncRange;
-
+.sp
 typedef struct {
     int type;                   /\(** of event */
     unsigned long serial;       /\(** # of last request processed by server */
@@ -253,7 +252,7 @@ typedef struct {
     Bool forced;                /\(** extents of new region */
     Time time;                  /\(** event timestamp */
 } XF86VidModeNotifyEvent;
-
+.sp
 typedef struct {
     float red;                  /\(** Red Gamma value */
     float green;                /\(** Green Gamma value */
@@ -394,7 +393,7 @@ The
 and
 .I low
 values will be equal if a discrete value was given in the
-.B __xconfigfile__
+.BR xorg.conf (5)
 file.
 .PP
 The
@@ -436,10 +435,11 @@ and
 functions need to be documented.
 In the meantime, check the source code for information about how to use them.
 .SH SEE ALSO
-.BR __xservername__ (__appmansuffix__),
-.BR __xconfigfile__ (__filemansuffix__),
+.BR Xorg (1),
+.BR xvidtune (1),
 .BR XFlush (__libmansuffix__),
 .BR XSetErrorHandler (__libmansuffix__),
-.BR xvidtune (__appmansuffix__)
+.BR xorg.conf (5),
+.BR X (7)
 .SH AUTHORS
 Kaleb Keithley, Jon Tombs, David Dawes, and Joe Moss
